@@ -247,6 +247,8 @@ console.log( 'The total number of credit purchases is:', numCreditPurchases );
 //     return transaction.vendor;
 // }).filter(transaction => transaction.vendor);
 
+var uniqueVendors = transactions.filter(transaction => transaction.vendor).map(transaction => transaction.vendor
+);;
 
 console.log( 'The unique vendors are:', uniqueVendors );
 
