@@ -267,8 +267,8 @@ console.log( 'The unique vendors are:', uniqueVendors );
 */
 
 var allCustomers = transactions.map(transaction => transaction.customer)
-
-var uniqueCustomers = new Set(allCustomers);
+var customerSet = new Set(allCustomers)
+var uniqueCustomers = Array.from(customerSet);
 
 console.log( 'The unique customers are:', uniqueCustomers );
 
