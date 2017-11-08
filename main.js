@@ -129,7 +129,12 @@ console.log( 'The total number of transactions is:', totalTransactions );
   HINT(S):
   - Not all transactions are 'sales'.
 */
-var numSales;
+var numSales = 0
+transactions.forEach(function(transaction) {
+  if (transaction['type'] === 'sale') {
+    numSales++;
+  };
+});
 
 /*
   Hey, welcome to the first question!
