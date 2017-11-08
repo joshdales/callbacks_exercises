@@ -166,7 +166,7 @@ console.log( 'The total number of sales is:', numSales );
 */
 var numPurchases = 0;
 transactions.forEach(function(transaction) {
-  if (transaction['type'] === 'purchase'){
+  if (transaction.type === 'purchase'){
     numPurchases ++;
   }
 })
@@ -183,9 +183,35 @@ console.log( 'The total number of purchases is:', numPurchases );
   HINT(S):
   - Don't forget that 'purchases' can also be made in 'cash'!
 */
-var numCashSales;
 
-console.log( 'The total number of cash sales is:', numCashSales );
+// var allSales = transactions.filter(function(transaction) {
+//   return transaction.type === 'sale';
+// })
+//
+// function sum(numbers) {
+//   return numbers.reduce(function(a, b) {
+//     return a + b
+//   }, 0)
+// }
+//
+// var numCashSales = sum(allSales.map(function(sale) {
+//   var prices = sale.items.map(function(item) {
+//     return item.price
+//   })
+//   return sum(prices)
+// }));
+
+var allSales = transactions.filter(transaction => transaction.type === 'sale')
+
+var sum = numbers =>
+  numbers.reduce((a, b) =>  a + b , 0)
+
+var numCashSales = sum(allSales.map(function(sale) {
+  var prices = sale.items.map(item => item.price );
+  return sum(prices)
+}));
+
+console.log( 'The total number of cash sales is:', numCashSales);
 
 
 // --------------------------------------------------
