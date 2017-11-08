@@ -204,7 +204,7 @@ console.log( 'The total number of purchases is:', numPurchases );
 var allSales = transactions.filter(transaction => transaction.type === 'sale')
 
 var sum = numbers =>
-  numbers.reduce((a, b) =>  a + b , 0)
+  numbers.reduce( (a, b) =>  a + b , 0 )
 
 var numCashSales = sum(allSales.map(function(sale) {
   var prices = sale.items.map(item => item.price );
@@ -304,7 +304,7 @@ console.log( 'The "big spenders" are:', bigSpenders );
   HINT(S):
   - Transactions don't have 'prices', but their 'items' do!
 */
-var sumSales;
+var sumSales = sum( allSales[0].items.map(item => item.price) )
 
 console.log( 'The sum of all sales is:', sumSales );
 
