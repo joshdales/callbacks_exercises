@@ -1,3 +1,4 @@
+'use strick';
 var transactions = [
   {
     type: 'sale',
@@ -129,7 +130,7 @@ console.log( 'The total number of transactions is:', totalTransactions );
   HINT(S):
   - Not all transactions are 'sales'.
 */
-var numSales = 0
+var numSales = 0;
 transactions.forEach(function(transaction) {
   if (transaction['type'] === 'sale') {
     numSales++;
@@ -304,7 +305,7 @@ console.log( 'The "big spenders" are:', bigSpenders );
   HINT(S):
   - Transactions don't have 'prices', but their 'items' do!
 */
-var sumSales = sum( allSales[0].items.map(item => item.price) )
+var sumSales = sum( allSales[0].items.map(item => item.price) );
 
 console.log( 'The sum of all sales is:', sumSales );
 
@@ -319,8 +320,11 @@ console.log( 'The sum of all sales is:', sumSales );
   - Your solution to 'QUESTION 08' is a good starting point!
   - Make sure to include 'price' information from *all* purchases.
 */
-
-var sumPurchases;
+var allPurchases = transactions.filter(transaction => transaction.type == 'purchase')
+var prices = allPurchases.map(function(sale) {
+  return sum( sale.items.map(item => item.price ) );
+});
+var sumPurchases = sum(prices);
 
 console.log( 'The sum of all purhcases is:', sumPurchases );
 
